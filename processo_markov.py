@@ -1,5 +1,15 @@
 import numpy as np
 
+# verifica se soma vetor igual a 1. Serve tanto para probabilidade quanto porcentagem
+def verify(a):
+    soma = 0
+    for elem in a:
+        soma = soma + elem
+    if soma != 1.0:
+        return False
+    else:
+        return True
+
 def vetor_ini(n):
     vetor = list()
     print 'Entre com o vetor de inicializacao: '
@@ -26,22 +36,21 @@ def exp_matriz(h, m):
         p = p.dot(m)
     return p
 
+def multi_exp_ini(ini, exp):
+    return np.dot(ini, exp)
+
 
 if __name__ == '__main__':
     n = input('Entre com o tamanho do vetor: ')
-    soma = 0
 
-    #while soma != 1.0:
-    #    aux = 0
-    #    a = vetor_ini(n)
-    #    for elem in a:
-    #        aux = aux + elem
-    #    soma = aux
-    #    if soma != 1.0:
-    #        print 'probabilidades do vetor diferente de 1.0 (100%)\nrefaca o processo ate soma das prob. igual a 1'
+    a = vetor_ini(n)
+    while verify(a):
+        print 'probabilidades do vetor diferente de 1.0 (100%)\nrefaca o processo ate soma das prob. igual a 1'
+        a = vetor_ini(n)
 
     m = matriz_transacao(n)
     exp = exp_matriz(4, m)
+
     print exp
 
 
