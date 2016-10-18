@@ -44,14 +44,14 @@ def multi_exp_ini(ini, exp):
 if __name__ == '__main__':
     print '\n\t\t\t--CADEIA DE MARKOV--\nVALORES DOS VETORES E MATRIZES DEVEM ESTAR NORMALIZADOS ENTRE 0 E 1'
     print 'O VETOR DE INIALIZACAO E MATRIZ DE TRANSICAO ESTAO ZERADOS POR PADRAO\n\n'
-    n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
+    n = int(input('Entre com o tamanho do vetor de inicializacao (n > 0): ')) #tamanho do vetor
     a = np.zeros(n) #vetor de inicialicacao
     m = np.zeros((n,n)) #matriz de transicao
     h = 0 #numero de passos
     exp = np.zeros # (a * m^h)
     flag_a = flag_m = flag_h = False #flags de controle de alteracao das variaveis
     #opt = 1 #opcao dentro do loop
-    opt = input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: ')
+    opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
     while opt:
         if(n <= 0):
             n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
@@ -70,6 +70,6 @@ if __name__ == '__main__':
                 #if flag_a and flag_m and flag_h:
                 exp = multi_exp_ini(a, exp_matriz(h, m))
                 print 'Exp ', exp
-            opt = input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: ')
+            opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
 
 
