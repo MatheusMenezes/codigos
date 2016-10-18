@@ -6,6 +6,7 @@ def verify(a):
     for elem in a:
         soma = soma + elem
     if soma != 1.0:
+        print '\nA soma dos elementos deve ser igual a 1!\n'
         return False
     else:
         return True
