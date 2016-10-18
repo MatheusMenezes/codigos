@@ -51,7 +51,7 @@ if __name__ == '__main__':
     exp = np.zeros # (a * m^h)
     flag_a = flag_m = flag_h = False #flags de controle de alteracao das variaveis
     #opt = 1 #opcao dentro do loop
-    opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
+    opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Qual observar?\n0-Sair\nopcao: '))
     while opt:
         if(n <= 0):
             n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
@@ -70,6 +70,6 @@ if __name__ == '__main__':
                 #if flag_a and flag_m and flag_h:
                 exp = multi_exp_ini(a, exp_matriz(h, m))
                 print 'Probabilidade dos estados: ', exp
-            opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
+            opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Qual observar?\n0-Sair\nopcao: '))
 
 
