@@ -1,6 +1,6 @@
 import numpy as np
 
-# verifica se soma vetor igual a 1. Serve tanto para probabilidade quanto porcentagem
+# verifica se soma vetor igual a 1. Serve para probabilidade dos vetores.
 def verify(a):
     soma = 0
     for elem in a:
@@ -9,7 +9,7 @@ def verify(a):
         return False
     else:
         return True
-
+# define o vetor de inicializacao
 def vetor_ini(n):
     vetor = np.zeros(n)
     while not verify(vetor):
@@ -18,10 +18,9 @@ def vetor_ini(n):
             valor_ini = input("pos[%d]: " %i) #porcentagem
             vetor[i] = valor_ini
 
-    print 'VETOR DE INICIALIZACA: ',vetor
+    print 'VETOR DE INICIALIZACAo: ',vetor
     return vetor
-
-
+# define a matriz de transicao
 def matriz_transicao(n):
     matriz = np.zeros((n, n))
     print 'Entre com a matriz de transicao: '
@@ -31,13 +30,13 @@ def matriz_transicao(n):
                 matriz[x][y] = input('pos['+str(x)+']['+str(y)+']: ')
     print 'MATRIZ DE TRANSICAO: \n',matriz
     return matriz
-
+# calcula a multiplicacao das matrizes
 def exp_matriz(h, m):
     p = m
     for i in range(int(h)-1):
         p = p.dot(m)
     return p
-
+# multiplica vetor de inialicazao com a matriz exponencial
 def multi_exp_ini(ini, exp):
     return np.dot(ini, exp)
 
