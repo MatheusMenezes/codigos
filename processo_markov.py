@@ -42,7 +42,9 @@ def multi_exp_ini(ini, exp):
 
 
 if __name__ == '__main__':
-    n = input('Entre com o tamanho do vetor de inicializacao: ') #tamanho do vetor
+    print '\n\t\t\t--CADEIA DE MARKOV--\nVALORES DOS VETORES E MATRIZES DEVEM ESTAR NORMALIZADOS ENTRE 0 E 1'
+    print 'O VETOR DE INIALIZACAO E MATRIZ DE TRANSICAO ESTAO ZERADOS POR PADRAO\n\n'
+    n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
     a = np.zeros(n) #vetor de inicialicacao
     m = np.zeros((n,n)) #matriz de transicao
     h = 0 #numero de passos
@@ -51,20 +53,23 @@ if __name__ == '__main__':
     #opt = 1 #opcao dentro do loop
     opt = input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: ')
     while opt:
-        if opt == 1: #definir vetor de inicialicacao
-            a = vetor_ini(n)
-            flag_a = True
-        if opt == 2: #definir matriz de transicao
-            m = matriz_transicao(n)
-            flag_m = True
-        if opt == 3: #definir numero de passos
-            h = input ('Entre com o numero de passos: ')
-            flag_h = True
-        if opt == 4: #definir qual elemento observar
-            exp = 0
-            #if flag_a and flag_m and flag_h:
-            exp = multi_exp_ini(a, exp_matriz(h, m))
-            print 'Exp ', exp
-        opt = input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: ')
+        if(n <= 0):
+            n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
+        else:
+            if opt == 1: #definir vetor de inicialicacao
+                a = vetor_ini(n)
+                flag_a = True
+            if opt == 2: #definir matriz de transicao
+                m = matriz_transicao(n)
+                flag_m = True
+            if opt == 3: #definir numero de passos
+                h = input ('Entre com o numero de passos: ')
+                flag_h = True
+            if opt == 4: #definir qual elemento observar
+                exp = 0
+                #if flag_a and flag_m and flag_h:
+                exp = multi_exp_ini(a, exp_matriz(h, m))
+                print 'Exp ', exp
+            opt = input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: ')
 
 
