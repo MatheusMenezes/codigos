@@ -10,7 +10,9 @@ def verify(a):
     else:
         return True
 # define o vetor de inicializacao
+
 def vetor_ini(n):
+
     vetor = np.zeros(n)
     while not verify(vetor):
         print 'Entre com o vetor de inicializacao: '
@@ -45,6 +47,12 @@ if __name__ == '__main__':
     print '\n\t\t\t--CADEIA DE MARKOV--\nVALORES DOS VETORES E MATRIZES DEVEM ESTAR NORMALIZADOS ENTRE 0 E 1'
     print 'O VETOR DE INIALIZACAO E MATRIZ DE TRANSICAO ESTAO ZERADOS POR PADRAO\n\n'
     n = int(input('Entre com o tamanho do vetor de inicializacao (n > 0): ')) #tamanho do vetor
+    desc = [] #descricao
+    print 'Entre com a descricao de cada elemento (0..n)\n'
+    for i in range(0,n):
+        descricao = raw_input("pos[%d]: " %i) #descricao
+        desc.append(descricao)
+    print desc
     a = np.zeros(n) #vetor de inicialicacao
     m = np.zeros((n,n)) #matriz de transicao
     h = 0 #numero de passos
@@ -69,7 +77,10 @@ if __name__ == '__main__':
                 exp = 0
                 #if flag_a and flag_m and flag_h:
                 exp = multi_exp_ini(a, exp_matriz(h, m))
-                print 'Exp ', exp
+                for j in range(0,n):
+                    print str(j)+'- '+str(desc[j])
+                index = input (':')
+                print 'Exp ', exp[index]
             opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
 
 
