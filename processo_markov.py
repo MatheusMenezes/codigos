@@ -78,15 +78,11 @@ if __name__ == '__main__':
                 exp = 0
                 #if flag_a and flag_m and flag_h:
                 exp = multi_exp_ini(a, exp_matriz(h, m))
-<<<<<<< HEAD
+
                 for j in range(0,n):
                     print str(j)+'- '+str(desc[j])
                 index = input (':')
-                print 'Exp ', exp[index]
+                print 'Probabilidade do estado para ' +str(h)+' passos: ', exp[index]
             opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
-=======
-                print 'Probabilidade dos estados: ', exp
-            opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Qual observar?\n0-Sair\nopcao: '))
->>>>>>> 45c65674aa23d74e59169475315873b0b1b7caed
 
 
