@@ -6,6 +6,7 @@ def verify(a):
     for elem in a:
         soma = soma + elem
     if soma != 1.0:
+        print '\nA soma dos elementos da linha/do vetor deve ser igual a 1!\n'
         return False
     else:
         return True
@@ -59,7 +60,7 @@ if __name__ == '__main__':
     exp = np.zeros # (a * m^h)
     flag_a = flag_m = flag_h = False #flags de controle de alteracao das variaveis
     #opt = 1 #opcao dentro do loop
-    opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
+    opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Qual observar?\n0-Sair\nopcao: '))
     while opt:
         if(n <= 0):
             n = input('Entre com o tamanho do vetor de inicializacao (n > 0): ') #tamanho do vetor
@@ -77,10 +78,15 @@ if __name__ == '__main__':
                 exp = 0
                 #if flag_a and flag_m and flag_h:
                 exp = multi_exp_ini(a, exp_matriz(h, m))
+<<<<<<< HEAD
                 for j in range(0,n):
                     print str(j)+'- '+str(desc[j])
                 index = input (':')
                 print 'Exp ', exp[index]
             opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Definir qual observar\n0-Sair\nopcao: '))
+=======
+                print 'Probabilidade dos estados: ', exp
+            opt = int(input('1-Definir Vetor de Incialicazao\n2-Definir Matriz de Transicao\n3-Definir numero de passos\n4-Qual observar?\n0-Sair\nopcao: '))
+>>>>>>> 45c65674aa23d74e59169475315873b0b1b7caed
 
 
