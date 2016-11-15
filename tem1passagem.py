@@ -1,3 +1,9 @@
+'''
+    Atividade Desenvolvida compor segunda nota
+        da Disciplina de Processos Estocasticos
+    Topico da aula: Tempo de primeira passagem
+'''
+
 import numpy as np
 
 '''
