@@ -6,10 +6,10 @@ P = ((0.08,0.184,0.368,0.368),(0.632,0.368,0.0, 0.0),(0.264,0.368,0.368,0.0),(0.
 def c_kolmogorov (mat_prob, n, m, i, j):
     p_ij = 0
     if m == 1:
-        return mat[i][j]
+        return mat_prob[i][j]
 
     for k in range (n):
-        p_ij += mat[i][k] * c_kolmogorov(mat_prob, n, m - 1, k, j )
+        p_ij += mat_prob[i][k] * c_kolmogorov(mat_prob, n, m - 1, k, j )
     return p_ij
 
 
