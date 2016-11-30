@@ -17,7 +17,7 @@ def verifica_regular():
 	g=2
 	s=0 
 	
-	n = input ("Dimensao da matriz: ")
+	n = input ("Dimensao (n) da matriz: ")
 	m = np.zeros((n, n))
 	matriz = np.zeros((n,n))
 	for i in range (n):
@@ -60,10 +60,10 @@ def verifica_regular():
 	    
 
 	    if teste==1 or s==1:
-	    	print "Nao regular na " + str(g)+ " geracao\n"
+	    	print "GERACAO " + str(g)+ " - NAO REGULAR\n"
 	    else:
 	    
-	        print "Regular na " + str(g)+ " geracao\n"
+	        print "GERACAO " + str(g)+ " - REGULAR\n"
 	    
 	    for i in range (n):
 	        for j in range(n):
