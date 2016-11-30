@@ -1,7 +1,5 @@
 import numpy as np
 
-
-
 def c_kolmogorov (mat_prob, n, m, i, j):
     p_ij = 0
     if m == 1:
@@ -16,7 +14,6 @@ def verifica_regular():
 
 	soma = 0
 	teste = 0
-	p=2
 	g=2
 	s=0 
 	
@@ -43,10 +40,10 @@ def verifica_regular():
 		print "Regular na primeira geracao\n"
 
 	passos = input("Numero de passos: ")
-
-	while p!=passos+1:
-	    teste=0
-	    s=0
+	p=2
+	while p != passos+1:
+	    teste= 0
+	    s= 0
 	    for i in range(n):
 	        for j in range(n):
 	            m[i][j] = c_kolmogorov(matriz, n, p, i, j);
