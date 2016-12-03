@@ -1,47 +1,49 @@
+'''
+    ALGORITMO PARA VERIFICAR CORRESPONDECIA ENTRE ESTADOS E
+    CLASSIFICA-LOS SE RECORRENTES OU TRANSIENTE
+    ALUNOS: MATHEUS CHAVES E DANILO NOGUEIRA
+'''
+
 import numpy as np
 
-m = ((1,0),(1,0))
-mdc = 0
-aux1 = 0
-aux2 = 0
+m = ((0.2,0.8,0),(0,0.3,0.7),(0,0,1))
 
-def alcancavel(x, y, n):
-    global aux1
-    c = np.zeros(1000)
+
+def est_alcancavel(x, y, n):
+    pos = 0
+    pos_verif_estado = 0
+    c = np.zeros(10000)
     if m[x][y] !=0:
         return 1
     else:
-        print aux1
-        c[aux1] = x
-        aux1 += 1
+        c[pos] = x
+        pos += 1
         for i in range(n):
             if m[x][i]!=0 and i!=y and x!=i:
-                res = teste_alcancavel(c,n, y,i);
+                res = verifica_alcancavel(c,n, y,i, pos_verif_estado);
                 if res:
-                   for j in range (1000):
+                   for j in range (10000):
                         c[j] = 0;
                    return 1;
 
-        for j in range (1000):
+        for j in range (10000):
             c[j] = 0
         return 0
 
-def teste_alcancavel(c, n, y, x):
-    flag = 0
-    global mdc, aux2
+def verifica_alcancavel(c, n, y, x, pos_verif_estado):
+    teste_estado = 0
     if m[x][y] != 0:
         return 1
 
     for i in range(n):
-        if m[x][i]!=0 and i!=y:
-            for j in range (n*n):
+        if m[x][i]!=0.0 and i!=y:
+            for j in range (10000):
                 if c[j]==i:
-                    flag = 1
-                    mdc = mdc + 1
-        if flag != 1:
-            c[aux2]=i
-            aux2 = aux2+1
-            r = teste_alcancavel(c,n,y,i)
+                    teste_estado = 1
+        if teste_estado != 1:
+            c[pos_verif_estado]=i
+            pos_verif_estado = pos_verif_estado+1
+            r = verifica_alcancavel(c,n,y,i, pos_verif_estado)
             if r:
                 j=0
                 while True :
@@ -62,12 +64,12 @@ def teste_alcancavel(c, n, y, x):
 def recorrente (est, n):
     res = 1
     if m[est][est]==1:
-        return 1
+        return 2
 
     for i in range (n):
         if i!=est:
-            if alcancavel(est, i, n):
-                if ~alcancavel(i, est, n):
+            if est_alcancavel(est, i, n):
+                if ~est_alcancavel(i, est, n):
                     res = 0
         if ~res :
             return 0;
@@ -86,6 +88,9 @@ def comunicacao_estados(p, i, j):
         print str(i) + ' <--> ' + str(j)
     elif verficica_estado[i][j] == 0 and verficica_estado[j][i] == 0:
         print str(i) + ' <-/-> ' + str(j)
+
+
+
 
 
 
@@ -110,7 +115,7 @@ if __name__ == '__main__':
 
     passos = 1
 
-    print 'MATRIZ TRANSICAO\n\n'
+    print 'MATRIZ TRANSICAO\n'
     print m
 
     n = len(m[0])
@@ -127,19 +132,19 @@ if __name__ == '__main__':
         for j in range (n):
             comunicacao_estados(mat_exp, i, j)
 
-    while passos!=9:
-        for i in range (n):
-            for j in range (n):
-                mat_chap[i][j] = c_kolmogorov(n, passos, i, j);
+    print "\n\nCLASSIFICACAO DOS ESTADOS DA MATRIZ m: \n\n"
 
-        m = mat_chap
-        for i in range(n):
 
-            m_teste = recorrente(i, n)
-            if m_teste == 1:
-                print "\nNa geracao "+ str(passos) +" - O estado "+ str(i) + " E RECORRENTE\n"
-            else:
-                print "\nNa geracao "+ str(passos) +" - O estado "+ str(i) + " E TRANSIENTE\n"
-                print "\nMDC = "+str(mdc)+"\n"
-        passos += 1
+    print m
+    for i in range(n):
+
+        m_teste = recorrente(i, n)
+        if m_teste == 1:
+            print "O estado "+ str(i) + " E RECORRENTE\n"
+        elif m_teste == 2:
+            print "O estado "+ str(i) + " E ABSORVENTE\n"
+        else:
+            print "O estado "+ str(i) + " E TRANSIENTE\n"
+
+    passos += 1
 
