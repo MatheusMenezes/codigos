@@ -8,7 +8,7 @@ import numpy as np
 
 m = ((0.2,0.8,0),(0,0.3,0.7),(0,0,1))
 
-
+# retorna se estado x e' alcancavel de y
 def est_alcancavel(x, y, n):
     pos = 0
     pos_verif_estado = 0
@@ -60,7 +60,7 @@ def verifica_alcancavel(c, n, y, x, pos_verif_estado):
         j = j+1
     return 0
 
-
+# verifica se estado e' recorrente
 def recorrente (est, n):
     res = 1
     if m[est][est]==1:
@@ -76,7 +76,7 @@ def recorrente (est, n):
     return 1;
 
 
-
+# ve se estado e alcancavel e comunicante
 def comunicacao_estados(p, i, j):
     if p[i][j] > 0.0:
         print str(i) + ' -> ' + str(j)
@@ -88,9 +88,6 @@ def comunicacao_estados(p, i, j):
         print str(i) + ' <--> ' + str(j)
     elif verficica_estado[i][j] == 0 and verficica_estado[j][i] == 0:
         print str(i) + ' <-/-> ' + str(j)
-
-
-
 
 
 
